@@ -16,14 +16,17 @@ import com.in28minutes.learning.jpa.jpain10steps.entity.User;
  *
  */
 @Repository
-@Transactional
+@Transactional // This is an interface for Declarative transaction management
 public class UserDAOService {
 	
 	@PersistenceContext
 	private EntityManager entityManager;
 	
 	public long insert(User user){
-		entityManager.persist(user);
+		// This will persist the user details to table 
+		// And then maintain a copy of the persistent object in persistence context with auto generated id value
+		// And also the persistent object will be monitored by PersistenceContext
+		entityManager.persist(user); 
 		return user.getId();
 	}
 

@@ -32,5 +32,7 @@ public class UserDaoServiceCommandLineRunner implements CommandLineRunner {
 		log.info("New User id auto-generated is : " + userId);
 		log.info("New User is created : " + user);
 	}
+	
+	
 
 }

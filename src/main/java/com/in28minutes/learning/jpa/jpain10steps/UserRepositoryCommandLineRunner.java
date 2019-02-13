@@ -34,8 +34,13 @@ public class UserRepositoryCommandLineRunner implements CommandLineRunner {
 		userRepository.save(user);
 		log.info("New User is created : " + user);
 		
-		Optional<User> userWithIdOne = userRepository.findById(1L);
-		log.info("User retrived with given id '1' is : " + userWithIdOne);
+		Optional<User> userWithIdTwo = userRepository.findById(2L);
+		log.info("User retrived with given id '2' is : " + userWithIdTwo);
+		
+		// The reason for wrapping User with optional is that it will provide empty instead of null 
+		// In case of the row is not available in the DB table for the given id 
+		Optional<User> userWithIdThree = userRepository.findById(3L);
+		log.info("User retrived with given id '3' is : " + userWithIdThree);
 		
 		List<User> users = userRepository.findAll();
 		log.info("All users retrived are  : " + users);
